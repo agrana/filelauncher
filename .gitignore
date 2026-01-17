@@ -2,6 +2,7 @@
 .venv/
 .vscode/
 .DS_Store
+HUMAN.md
 __pycache__/
 *.py[cod]
 .pytest_cache/
