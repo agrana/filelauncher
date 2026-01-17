@@ -25,12 +25,12 @@ The system follows a lightweight, event-driven architecture:
 
 ```mermaid
 graph TD
-    A[Launchd (macOS)] -- Watches 'notes/' --> B(Filelauncher Binary / Go)
-    B -- Matches Rules --> C{Check History}
-    C -- New/Updated --> D[Python Agent]
-    C -- No Change --> E[Skip]
-    D -- API Call --> F[OpenAI]
-    F -- Generate --> G[Output Files]
+    A[Launchd (macOS)] -->|Watches notes/| B["Filelauncher Binary / Go"]
+    B -->|Matches Rules| C{Check History}
+    C -->|New/Updated| D[Python Agent]
+    C -->|No Change| E[Skip]
+    D -->|API Call| F[OpenAI]
+    F -->|Generate| G[Output Files]
 ```
 
 ### Execution Flow
@@ -51,4 +51,3 @@ User Experience:
 - It can be installed with brew
 - Users can create custom rules per file path / type etc.
 - Everything that can be infered as a sensible default needs to be infered as a sensible defautl. 
-
