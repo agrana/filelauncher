@@ -1,0 +1,39 @@
+version: 1
+
+dolt:
+  dir: data
+
+rules:
+  - name: md-langchain
+    paths:
+      - /Users/alfonsograna/Documents/code/filelauncher/notes
+      - /Users/alfonsograna/Documents/notes2026/content
+    include: "*.md"
+    exclude:
+      - "*.medium.md"
+      - "*.linkedin.md"
+      - "*.x.md"
+    outputs: ["medium", "x"]
+    action:
+      command: "/Users/alfonsograna/Documents/code/filelauncher/.venv/bin/python3"
+      args: ["actions/llm_agent.py", "--input", "{path}", "--outputs", "{outputs}", "--model", "gpt-4.1-nano", "--temperature", "0.7", "--system-prompt", "prompts/system.txt"]
+    env:
+      LANGCHAIN_PROFILE: "default"
+
+  - name: publish-medium
+    paths:
+      - /Users/alfonsograna/Documents/code/filelauncher/notes
+      - /Users/alfonsograna/Documents/notes2026/content
+    include: "*.medium.md"
+    action:
+      command: "/Users/alfonsograna/Documents/code/filelauncher/.venv/bin/python3"
+      args: ["actions/medium_publisher.py", "--input", "{path}"]
+
+  - name: publish-x
+    paths:
+      - /Users/alfonsograna/Documents/code/filelauncher/notes
+      - /Users/alfonsograna/Documents/notes2026/content
+    include: "*.x.md"
+    action:
+      command: "/Users/alfonsograna/Documents/code/filelauncher/.venv/bin/python3"
+      args: ["actions/x_publisher.py", "--input", "{path}"]

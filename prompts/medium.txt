@@ -1,0 +1,12 @@
+Write a Medium article from the content below.
+
+Requirements:
+- Engaging hook, then a clear narrative arc, then actionable takeaways.
+- Use Markdown with short sections and subheadings.
+- Prefer bullet points over long paragraphs.
+- Keep paragraphs to 1–3 sentences.
+- Be concise: remove filler, repetition, and vague claims.
+- Use specific examples from the content; don’t invent facts.
+
+CONTENT:
+{content}

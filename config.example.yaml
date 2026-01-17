@@ -1,0 +1,16 @@
+version: 1
+
+dolt:
+  dir: data
+
+rules:
+  - name: md-langchain
+    paths:
+      - /Users/you/notes
+    include: "*.md"
+    outputs: ["medium", "linkedin", "x"]
+    action:
+      command: "./actions/langchain-agent"
+      args: ["--input", "{path}", "--outputs", "{outputs}"]
+    env:
+      LANGCHAIN_PROFILE: "default"
