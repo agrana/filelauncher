@@ -24,13 +24,13 @@ Architecture:
 The system follows a lightweight, event-driven architecture:
 
 ```mermaid
-graph TD
-    A[Launchd (macOS)] -->|Watches notes/| B["Filelauncher Binary / Go"]
-    B -->|Matches Rules| C{Check History}
-    C -->|New/Updated| D[Python Agent]
-    C -->|No Change| E[Skip]
-    D -->|API Call| F[OpenAI]
-    F -->|Generate| G[Output Files]
+graph TD;
+    A["Launchd (macOS)"] -->|Watches notes/| B["Filelauncher Binary / Go"];
+    B -->|Matches Rules| C{Check History};
+    C -->|New/Updated| D[Python Agent];
+    C -->|No Change| E[Skip];
+    D -->|API Call| F[OpenAI];
+    F -->|Generate| G[Output Files];
 ```
 
 ### Execution Flow
